@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+
+{% load static %}
+
+{% block title %}
+    Log in
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <br>
+        <h1 class="product_title text-center" >
+            Вход
+        </h1>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 mx-auto bg-light">
+            <div>
+                <br>
+                <h2 class="product_title"</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <p>{{ form | crispy }}</p>
+                    <button type="submit" class="btn btn-secondary">Войти</button>
+                </form>
+                <br>
+            </div>
+            <div class="row">
+                <div class ="col-12 col-sm-12 col-lg-6 custom_div">
+                    <a href="{% url 'signup' %}" class="btn btn-secondary">Зарегистрироваться</a>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+{% endblock %}

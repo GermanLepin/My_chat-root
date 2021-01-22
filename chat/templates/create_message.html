@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Create New Account
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        {% if not user.is_valid %}
+            <div>
+                <br>
+                <h1 class="product_title text-center">
+                    Создать сообщение
+                </h1>
+                <br>
+                <div class="col-9 col-sm-9 col-md-6 col-lg-5 mx-auto bg-light">
+                    <br>
+                    <p>Пожалуйста, напишите сообщение, и выберете кому вы хотите отправить его</p>
+                    <form method="get" action="{% url 'home' %}">
+                        <p>{{ crispy }}</p>
+                        <p>
+                        <input v-model="user" type="text" placeholder="Имя пользователя"/>
+                        <p>
+                        <textarea cols="50" rows="10" name="text" type="text" placeholder="Текст сообщения"></textarea>
+                        <p>
+                        <button type="text" name="button" class="btn btn-secondary">Отправить</button>
+{#                        <button type="submit" name="button" class="btn btn-secondary">Отправить</button>#}
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+{% endblock %}
